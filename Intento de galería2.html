@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reparto protagonista</title>
+
+  <!-- Fuente elegante desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    /* === Fondo general === */
+    body {
+      margin: 0;
+      background-color: #011587;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* === Título elegante con efectos === */
+    h1 {
+      position: relative;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.5rem;
+      color: #ffffff;
+      margin: 60px 0 40px 0;
+      text-shadow: 0 0 25px rgba(255, 255, 255, 0.5),
+                   0 0 50px rgba(100, 150, 255, 0.3);
+      letter-spacing: 3px;
+      animation: fadeIn 1.2s ease-out;
+      z-index: 1;
+    }
+
+    /* === Halo brillante detrás del título === */
+    h1::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 350px;
+      height: 350px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(80,160,255,0.6) 0%, transparent 70%);
+      filter: blur(80px);
+      z-index: -1;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    /* === Rayos o energía suave alrededor === */
+    h1::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      transform: translate(-50%, -50%) rotate(0deg);
+      background: conic-gradient(
+        from 0deg,
+        rgba(255,255,255,0.2),
+        rgba(0, 200, 255, 0.4),
+        rgba(255,255,255,0.2),
+        rgba(0,150,255,0.3)
+      );
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: -2;
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* === Galería === */
+    section {
+      display: flex;
+      width: 80vw;
+      height: 70vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    }
+
+    section img {
+      width: 0px;
+      flex-grow: 1;
+      object-fit: cover;
+      opacity: .8;
+      transition: 0.5s ease;
+      cursor: url('yodab.cur'), auto;
+    }
+
+    section img:hover {
+      width: 250px;
+      opacity: 1;
+      filter: contrast(120%);
+    }
+  </style>
+</head>
+<body>
+  <!-- === Título con rayos y energía === -->
+  <h1>Reparto protagonista</h1>
+
+  <!-- === Galería === -->
+  <section>
+    <img src="Eirys prime.png" alt="Eirys Prime" data-link="https://ejemplo.com/eirys">
+    <img src="Kael super def.png" alt="Kael Super Def" data-link="https://ejemplo.com/kael">
+    <img src="Ranter Prime.png" alt="Ranter Prime" data-link="https://www.instagram.com/p/DPPgyeRDKEj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+    <img src="Velkar prime.png" alt="Velkar Prime" data-link="https://www.instagram.com/p/DP7STlujNf7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+    <img src="Neryth prime.jpg" alt="Neryth Prime" data-link="https://www.instagram.com/p/DPXPGJ6Deqs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+  </section>
+
+  <script>
+    // Hace que las imágenes abran sus enlaces al hacer clic
+    const imagenes = document.querySelectorAll('section img');
+    imagenes.forEach(img => {
+      img.addEventListener('click', () => {
+        const enlace = img.getAttribute('data-link');
+        if (enlace) window.open(enlace, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
