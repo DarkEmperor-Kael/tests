@@ -2,33 +2,58 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"> 
-  <title>Reparto protagonista</title>
+  <title>Eirys</title>
 
-  <!-- Fuente elegante desde Google Fonts -->
+  <!-- Fuente elegante -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    /* === Fondo y centrado general === */
+    /* === Fondo general === */
     body {
       margin: 0;
-      background-color: #011587;
+      background-color: #fff;
       display: flex;
-      flex-direction: column; /* apila título y galería verticalmente */
+      flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      position: relative;
+      font-family: 'Great Vibes', cursive;
     }
 
-    /* === Título elegante === */
+    /* === Marcos y filigranas === */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 12px double #b8860b; /* dorado oscuro */
+      border-radius: 20px;
+      box-shadow:
+        0 0 20px rgba(218, 165, 32, 0.4),
+        inset 0 0 10px rgba(139, 0, 0, 0.3);
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(255, 0, 0, 0.05) 0deg 20deg,
+        transparent 20deg 40deg
+      );
+      pointer-events: none;
+    }
+
+    /* === Título === */
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      color: #fff; /* caballero de arkham*/
-      margin: 40px 0 20px 0;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      font-size: 3.5rem;
+      color: #b22222;
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      text-shadow:
+        1px 1px 4px gold,
+        0 0 10px rgba(255, 215, 0, 0.6);
       letter-spacing: 2px;
+      z-index: 2;
       animation: fadeIn 1.2s ease-out;
+      max-width: 90%;
     }
 
     @keyframes fadeIn {
@@ -46,10 +71,16 @@
     section {
       display: flex;
       width: 80vw;
-      height: 75vh; /* un poco más baja para dejar sitio al título */
-      border-radius: 12px;
+      height: 70vh; /* un poco más pequeña */
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      margin-top: 10px; /* sube la galería un poco */
+      box-shadow:
+        0 0 25px rgba(139, 0, 0, 0.3),
+        inset 0 0 15px rgba(255, 215, 0, 0.4);
+      border: 3px solid #b8860b;
+      background: linear-gradient(145deg, #fffaf0 0%, #ffe4b5 100%);
+      z-index: 1;
     }
 
     section img {
@@ -58,43 +89,51 @@
       object-fit: cover;
       opacity: .8;
       transition: 0.5s ease;
-      cursor: url('11zon_Imagen de WhatsApp 2025-11-05 a las 17.45.09_ebbf7f73-Photoroom.cur'), auto;
+      cursor: url('puntero.cur'), auto;
+      filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
     }
 
     section img:hover {
       width: 200px;
       opacity: 1;
-      filter: contrast(120%);
+      filter:
+        contrast(120%)
+        drop-shadow(0 0 20px rgba(255, 0, 0, 0.5))
+        drop-shadow(0 0 30px rgb(226, 226, 49));
     }
   </style>
 </head>
 <body>
   <!-- === Título elegante === -->
-  <h1>Tu personaje. Haz click en las espadas y pulsa en la imagen del centro cuando acabes. PD: espero que te guste el puntero jajaja</h1>
+  <h1>
+    Tu personaje. Haz click en las espadas y pulsa en la imagen del centro cuando acabes ⚔️
+  </h1>
 
   <!-- === Galería === -->
   <section>
     <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Eirys%20prime.png" alt="Miau">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Kael%20super%20def.png" alt="Jokes" data-link="https://es.wikipedia.org/wiki/Espada_bastarda">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Ranter%20Prime.png" alt="" data-link="https://www.instagram.com/p/DPPgyeRDKEj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Velkar%20prime.png" alt="Batsy" data-link="https://es.wikipedia.org/wiki/Espada_ropera">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Neryth%20prime.jpg" alt="Darkseid">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/trabajazo/Eirys%20almost%20(2).png" alt="Jokes" data-link="https://es.wikipedia.org/wiki/Espada_bastarda">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/trabajazo/Imagen%20de%20WhatsApp%202025-11-05%20a%20las%2017.43.41_5993e146.jpg" alt="" data-link="https://www.instagram.com/p/DPPgyeRDKEj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/trabajazo/ChatGPT%20Image%204%20nov%202025%2C%2014_35_42.png" alt="Batsy" data-link="https://es.wikipedia.org/wiki/Espada_ropera">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/trabajazo/Eirys%20Queen.png" alt="Darkseid">
   </section>
 
   <script>
-    // Seleccionamos todas las imágenes dentro del <section>
+    // === Enlaces en imágenes ===
     const imagenes = document.querySelectorAll('section img');
-
     imagenes.forEach(img => {
       img.addEventListener('click', () => {
         const enlace = img.getAttribute('data-link');
         if (enlace) {
-          window.open(enlace, '_blank'); // abre en una nueva pestaña
+          window.open(enlace, '_blank');
         }
       });
     });
   </script>
 </body>
 </html>
+
+
+
 
 
