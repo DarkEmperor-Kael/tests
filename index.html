@@ -4,96 +4,105 @@
   <meta charset="UTF-8"> 
   <title>Reparto protagonista</title>
 
-  <!-- Fuente elegante desde Google Fonts -->
+  <!-- Fuente elegante -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-    /* === Fondo y centrado general === */
+    /* === Fondo con efecto fuego animado === */
     body {
       margin: 0;
-      background-color: #011587;
+      height: 100vh;
       display: flex;
-      flex-direction: column; /* apila título y galería verticalmente */
+      flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      height: 100vh;
       overflow: hidden;
+      background: radial-gradient(circle at bottom, #ff0000 0%, #005eff 30%, #6500f2 60%, #15ff00 100%);
+      background-size: 100% 200%;
+      animation: fuego 6s linear infinite;
     }
 
-    /* === Título elegante === */
+    @keyframes fuego {
+      0% { background-position: 50% 100%; }
+      50% { background-position: 50% 0%; }
+      100% { background-position: 50% 100%; }
+    }
+
+    /* === Título cromado plateado con borde negro === */
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: 4rem;
-      color: #fff; /* caballero de arkham*/
-      margin: 40px 0 20px 0;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      font-size: 4.5rem;
+      background: linear-gradient(90deg, #b0b0b0 10%, #ffffff 40%, #c0c0c0 60%, #b0b0b0 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1.0px black; /* borde negro */
+      position: relative;
+      margin: 40px 0 30px 0;
+      text-shadow:
+        0 0 6px rgba(255, 215, 0, 0.4),
+        0 0 12px rgba(255, 255, 255, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.7); /* da profundidad */
       letter-spacing: 2px;
-      animation: fadeIn 1.2s ease-out;
+      animation: reflejo 4s linear infinite;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes reflejo {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
     }
 
-    /* === Galería === */
+    /* === Marco metálico plateado === */
     section {
       display: flex;
       width: 80vw;
-      height: 75vh; /* un poco más baja para dejar sitio al título */
-      border-radius: 12px;
+      height: 70vh;
+      border: 5px solid silver;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      box-shadow:
+        0 0 25px rgba(255, 255, 255, 0.6),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      background: rgba(255, 255, 255, 0.05);
     }
 
+    /* === Imágenes de la galería === */
     section img {
       width: 0px;
       flex-grow: 1;
       object-fit: cover;
-      opacity: .8;
-      transition: 0.5s ease;
+      opacity: 0.85;
+      transition: 0.6s ease;
       cursor: url('teruttete.cur'), auto;
     }
 
     section img:hover {
-      width: 200px;
+      width: 180px;
       opacity: 1;
-      filter: contrast(120%);
+      filter: contrast(120%) brightness(1.2);
+      transform: scale(1.02);
     }
   </style>
 </head>
 <body>
-  <!-- === Título elegante === -->
   <h1>Reparto protagonista</h1>
 
-  <!-- === Galería === -->
   <section>
     <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Eirys%20prime.png" alt="Eirys Prime" data-link="https://ejemplo.com/eirys">
     <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Kael%20super%20def.png" alt="Kael Super Def" data-link="https://es.wikipedia.org/wiki/Darth_Vader">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Ranter%20Prime.png" alt="" data-link="https://www.instagram.com/p/DPPgyeRDKEj/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Velkar%20prime.png" alt="Velkar Prime" data-link="https://www.instagram.com/p/DP7STlujNf7/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
-    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Neryth%20prime.jpg" alt="Neryth Prime" data-link="https://www.instagram.com/p/DPXPGJ6Deqs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Ranter%20Prime.png" alt="Ranter Prime" data-link="https://www.instagram.com/p/DPPgyeRDKEj/">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Velkar%20prime.png" alt="Velkar Prime" data-link="https://www.instagram.com/p/DP7STlujNf7/">
+    <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Neryth%20prime.jpg" alt="Neryth Prime" data-link="https://www.instagram.com/p/DPXPGJ6Deqs/">
   </section>
 
   <script>
-    // Seleccionamos todas las imágenes dentro del <section>
     const imagenes = document.querySelectorAll('section img');
-
     imagenes.forEach(img => {
       img.addEventListener('click', () => {
         const enlace = img.getAttribute('data-link');
-        if (enlace) {
-          window.open(enlace, '_blank'); // abre en una nueva pestaña
-        }
+        if (enlace) window.open(enlace, '_blank');
       });
     });
   </script>
 </body>
 </html>
-
