@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/main/dragon.ico">
   <!-- Fuente elegante -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
+  
   <style>
     /* === Fondo con efecto fuego animado === */
     body {
@@ -28,20 +28,19 @@
       100% { background-position: 50% 100%; }
     }
 
-    /* === Título cromado plateado con borde negro === */
+    /* === Título cromado === */
     h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 4.5rem;
       background: linear-gradient(90deg, #b0b0b0 10%, #ffffff 40%, #c0c0c0 60%, #b0b0b0 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 1.0px black; /* borde negro */
-      position: relative;
+      -webkit-text-stroke: 1px black;
       margin: 40px 0 30px 0;
       text-shadow:
         0 0 6px rgba(255, 215, 0, 0.4),
         0 0 12px rgba(255, 255, 255, 0.3),
-        0 2px 4px rgba(0, 0, 0, 0.7); /* da profundidad */
+        0 2px 4px rgba(0, 0, 0, 0.7);
       letter-spacing: 2px;
       animation: reflejo 4s linear infinite;
     }
@@ -51,7 +50,7 @@
       100% { background-position: 100% 50%; }
     }
 
-    /* === Marco metálico plateado === */
+    /* === Marco === */
     section {
       display: flex;
       width: 80vw;
@@ -66,14 +65,13 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
-    /* === Imágenes de la galería === */
     section img {
-      width: 0px;
+      width: 0;
       flex-grow: 1;
       object-fit: cover;
       opacity: 0.85;
       transition: 0.6s ease;
-      cursor: url('teruttete.cur'), auto;
+      cursor: pointer;
     }
 
     section img:hover {
@@ -82,8 +80,27 @@
       filter: contrast(120%) brightness(1.2);
       transform: scale(1.02);
     }
+
+    /* === Botón de audio (imagen) === */
+    #audio-btn {
+      margin-top: 15px;
+      width: 80px;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.4s;
+    }
+
+    #audio-btn:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    audio {
+      display: none;
+    }
   </style>
 </head>
+
 <body>
   <h1>Reparto protagonista</h1>
 
@@ -94,16 +111,35 @@
     <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Velkar%20prime.png" alt="Velkar Prime" data-link="https://www.instagram.com/p/DP7STlujNf7/">
     <img src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/845e9fc446673727b4ecf5f3867326c2da9914d9/Neryth%20prime.jpg" alt="Neryth Prime" data-link="https://www.instagram.com/p/DPXPGJ6Deqs/">
   </section>
-  
+
+  <!-- IMAGEN BOTÓN (pon aquí la que quieras) -->
+  <img id="audio-btn" src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/main/Logo%20de%20la%20novela%20(seguramente).png" alt="Activar sonido">
+
+  <!-- AUDIO OCULTO -->
+  <audio id="bg-audio" loop>
+    <source src="https://raw.githubusercontent.com/DarkEmperor-Kael/tests/main/ringtones-march-imperial.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
-    const imagenes = document.querySelectorAll('section img');
-    imagenes.forEach(img => {
+    // Links de imágenes
+    document.querySelectorAll('section img').forEach(img => {
       img.addEventListener('click', () => {
         const enlace = img.getAttribute('data-link');
         if (enlace) window.open(enlace, '_blank');
       });
     });
+
+    // Audio
+    const audio = document.getElementById('bg-audio');
+    const botonAudio = document.getElementById('audio-btn');
+
+    botonAudio.addEventListener('click', () => {
+      audio.play().then(() => {
+        botonAudio.style.opacity = '0';
+        botonAudio.style.pointerEvents = 'none';
+        setTimeout(() => botonAudio.remove(), 600);
+      });
+    });
   </script>
 </body>
 </html>
-
